@@ -1,13 +1,13 @@
 <%-- 
-    Document   : state
-    Created on : Oct 3, 2017, 10:12:09 AM
-    Author     : student29
+    Document   : StateDetails
+    Created on : Sep 25, 2017, 10:26:43 AM
+    Author     : student31
 --%>
+
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean class="db.dbConnection" id="obj"></jsp:useBean>
 <!DOCTYPE html>
-
+<jsp:useBean id="obj" class="db.db_connection"></jsp:useBean>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,11 +19,13 @@
             String statename="";
             if(request.getParameter("eid")!=null)
             {
-                String sel="select * from tbl_state where state_id='"+request.getParameter("eid")+"'";
+                String eid=request.getParameter("eid");
+                String sel="select * from tbl_state where state_id="+eid;
                 ResultSet rs=obj.select(sel);
                 if(rs.next())
                 {
                     statename=rs.getString("state_name");
+                    editId=rs.getString("state_id");
                 }
             }
             if(request.getParameter("did")!=null)
@@ -36,19 +38,30 @@
                 }
                 out.println(b);
             }
-            String submit=request.getParameter("sub");
-            if(submit!=null){
-                String state=request.getParameter("txt_state");
-                if(request.getParameter("hid")!="")
-                {
-                    String up="update tbl_state set state_name='"+state+"' where state_id='"+request.getParameter("hid")+"'";
-                    boolean b=obj.insert(up);
-                }
-                String ins="insert into tbl_state(state_name)values('"+state+"')";
-                boolean b=obj.insert(ins);
-                out.println(b);
-                
-            }
+            if(request.getParameter("submit")!=null)
+            {
+                String sname=request.getParameter("sname");
+               
+                   if(!request.getParameter("hid").equals(""))
+                     {
+                     String hid=request.getParameter("hid");
+                     String str="update tbl_state set state_name='"+sname+"' where state_id="+hid;
+                     boolean b=obj.insert(str);
+                     if(b==true)
+                         out.print("success");
+                     else
+                         out.print(str);
+                     }
+               else
+                   
+               {
+                String str="insert into tbl_state(state_name)values('"+sname+"')";
+                boolean b=obj.insert(str);
+                if(b=true)
+                    out.print("success");
+                else
+                    out.print(str);
+            }}
             
         %>
         <form name="frm">
@@ -56,8 +69,8 @@
                 <input type="hidden" name="hid" value="<%=editId%>">
             <table>
                 <tr><h1>State Details</h1></tr>
-                <tr><td>State Name</td><td><input type="text" name="txt_state" id="state" value="<%=statename%>"></td></tr>
-                <tr><td><input type="submit" name="sub" value="Save"onClick="return validation()"></td>
+                <tr><td>State Name</td><td><input type="text" name="sname" id="sname" value="<%=statename%>"></td></tr>
+                <tr><td><input type="submit" name="submit" value="Submit" onClick="return validation()"></td>
                     <td><input type="reset" value="Cancel" name="cancel"</td>
                 </tr>
             </table>
@@ -75,7 +88,7 @@
                         <td><a href="StateDetails.jsp?did=<%=rs.getString("state_id")%>">Delete</a></td>
                     </tr>
                                 <%
-                                  }
+                                    }
                     %>
                     
                 </table>

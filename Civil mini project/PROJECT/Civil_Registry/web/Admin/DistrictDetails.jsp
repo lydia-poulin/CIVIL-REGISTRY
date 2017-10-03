@@ -1,17 +1,17 @@
 <%-- 
-    Document   : district
-    Created on : Oct 3, 2017, 10:11:59 AM
-    Author     : student29
+    Document   : DistrictDetails
+    Created on : Sep 25, 2017, 10:26:59 AM
+    Author     : student31
 --%>
+
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean class="db.dbConnection" id="obj"></jsp:useBean>
 <!DOCTYPE html>
-
+<jsp:useBean id="obj" class="db.db_connection"></jsp:useBean>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>CivilRegistry::DistrictDetails</title>
     </head>
     <body>
          <form name="frm">
@@ -124,6 +124,3 @@
         </form>
     </body>
 </html>
-
-
-
