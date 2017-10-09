@@ -4,7 +4,7 @@
     Author     : student29
 --%>
 <%@page import="java.sql.ResultSet"%>
-<jsp:useBean class="db.dbConnection" id="obj"></jsp:useBean>
+<jsp:useBean class="db.db_connection" id="obj"></jsp:useBean>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
@@ -82,6 +82,297 @@ out.print(str3);
 %>
 <html>
     <head>
+         <script>
+            
+            function validate()
+            {
+                var status="true";
+                
+                var passname=/^[a-zA-z]{4,20}$/;
+                var pname=document.getElementById('pass_name').value;
+               
+                if((pname.match(passname)))
+                {
+                    document.getElementById("valpass_name").innerHTML="";
+                }else
+                { alert(pname);
+                    document.getElementById("valpass_name").innerHTML="Invalid FirstName";
+                    status="false";
+                }
+                
+                var surname=/^[a-zA-z]{4,20}$/;
+                var sname=document.getElementById('pass_surname').value;
+               
+                if((sname.match(surname)))
+                {
+                    document.getElementById("valpass_surname").innerHTML="";
+                }else
+                { alert(sname);
+                    document.getElementById("valpass_surname").innerHTML="Invalid SurName";
+                    status="false";
+                }
+                
+                
+                var birthplace=/^[a-zA-z]{4,20}$/;
+                var bplace=document.getElementById('pass_birthplace').value;
+               
+                if((bplace.match(birthplace)))
+                {
+                    document.getElementById("valpass_birthplace").innerHTML="";
+                }else
+                { alert(bplace);
+                    document.getElementById("valpass_birthplace").innerHTML="Invalid BirthPlace";
+                    status="false";
+                }
+                var passcountry=/^[a-zA-z 0-9]{4,20}$/;
+                var country=document.getElementById('pass_country').value;
+               
+                if((country.match(passcountry)))
+                {
+                    document.getElementById("valpass_country").innerHTML="";
+                }else
+                { alert(country);
+                    document.getElementById("valpass_country").innerHTML="Invalid Country";
+                    status="false";
+                }
+                var passpanno=/^[a-zA-z 0-9]{4,20}$/;
+                var panno=document.getElementById('pass_panno').value;
+               
+                if((panno.match(passpanno)))
+                {
+                    document.getElementById("valpass_panno").innerHTML="";
+                }else
+                { alert(panno);
+                    document.getElementById("valpass_panno").innerHTML="Invalid PanNumber";
+                    status="false";
+                }
+                var passvoterid=/^[a-zA-z 0-9]{4,20}$/;
+                var voterid=document.getElementById('pass_voterid').value;
+               
+                if((voterid.match(passvoterid)))
+                {
+                    document.getElementById("valpass_voterid").innerHTML="";
+                }else
+                { alert(voterid);
+                    document.getElementById("valpass_voterid").innerHTML="Invalid VoterId";
+                    status="false";
+                }
+                 var passemporg=/^[a-zA-z]{4,20}$/;
+                var emporg=document.getElementById('pass_emporg').value;
+               
+                if((emporg.match(passemporg)))
+                {
+                    document.getElementById("valpass_emporg").innerHTML="";
+                }else
+                { alert(emporg);
+                    document.getElementById("valpass_emporg").innerHTML="Invalid employee";
+                    status="false";
+                }
+                
+                 var passaadharno=/^[0-9]{12}$/;
+                var aadharno=document.getElementById('pass_aadharno').value;
+               
+                if((aadharno.match(passaadharno)))
+                {
+                    document.getElementById("valpass_aadharno").innerHTML="";
+                }else
+                { alert(aadharno);
+                    document.getElementById("valpass_aadharno").innerHTML="Invalid Aadhar Number";
+                    status="false";
+                }
+                
+                 var passidmarks=/^[a-zA-z]{4,20}$/;
+                var idmarks=document.getElementById('pass_idmarks').value;
+               
+                if((idmarks.match(passidmarks)))
+                {
+                    document.getElementById("valpass_idmarks").innerHTML="";
+                }else
+                { alert(idmarks);
+                    document.getElementById("valpass_idmarks").innerHTML="Invalid IdentificationMark";
+                    status="false";
+                }
+                
+                var passfname=/^[a-zA-z]{4,20}$/;
+                var pfname=document.getElementById('pass_fname').value;
+               
+                if((pfname.match(passfname)))
+                {
+                    document.getElementById("valpass_fname").innerHTML="";
+                }else
+                { alert(pfname);
+                    document.getElementById("valpass_fname").innerHTML="Invalid FatherName";
+                    status="false";
+                }
+                
+                var passmname=/^[a-zA-z]{4,20}$/;
+                var pmname=document.getElementById('pass_mname').value;
+               
+                if((pmname.match(passmname)))
+                {
+                    document.getElementById("valpass_mname").innerHTML="";
+                }else
+                { alert(pmname);
+                    document.getElementById("valpass_mname").innerHTML="Invalid MotherName";
+                    status="false";
+                }
+                
+                var passgname=/^[a-zA-z]{4,20}$/;
+                var pgname=document.getElementById('pass_gname').value;
+               
+                if((pgname.match(passgname)))
+                {
+                    document.getElementById("valpass_gname").innerHTML="";
+                }else
+                { alert(pgname);
+                    document.getElementById("valpass_gname").innerHTML="Invalid GuardianName";
+                    status="false";
+                }
+                
+                var passspousename=/^[a-zA-z]{4,20}$/;
+                var pspousename=document.getElementById('pass_spousename').value;
+               
+                if((pspousename.match(passspousename)))
+                {
+                    document.getElementById("valpass_spousename").innerHTML="";
+                }else
+                { alert(pspousename);
+                    document.getElementById("valpass_spousename").innerHTML="Invalid SpouseName";
+                    status="false";
+                }
+                
+                var passaddress=/^[a-zA-z]{4,20}$/;
+                var paddress=document.getElementById('pass_address').value;
+               
+                if((paddress.match(passaddress)))
+                {
+                    document.getElementById("valpass_address").innerHTML="";
+                }else
+                { alert(paddress);
+                    document.getElementById("valpass_address").innerHTML="Invalid Address";
+                    status="false";
+                }
+                
+                var passpolice=/^[a-zA-z]{4,20}$/;
+                var ppolice=document.getElementById('pass_police').value;
+               
+                if((ppolice.match(passpolice)))
+                {
+                    document.getElementById("valpass_police").innerHTML="";
+                }else
+                { alert(ppolice);
+                    document.getElementById("valpass_police").innerHTML="Invalid PoliceDetails";
+                    status="false";
+                }
+                
+                var passmobno=/^[a-zA-z]{4,20}$/;
+                var pmobno=document.getElementById('pass_mobno').value;
+               
+                if((pmobno.match(passmobno)))
+                {
+                    document.getElementById("valpass_mobno").innerHTML="";
+                }else
+                { alert(pmobno);
+                    document.getElementById("valpass_mobno").innerHTML="Invalid MobNumber";
+                    status="false";
+                }
+                
+                 var passemail=/^[a-zA-z]{4,20}$/;
+                var pemail=document.getElementById('pass_email').value;
+               
+                if((pemail.match(passemail)))
+                {
+                    document.getElementById("valpass_email").innerHTML="";
+                }else
+                { alert(pemail);
+                    document.getElementById("valpass_email").innerHTML="Invalid EmailId";
+                    status="false";
+                }
+                     
+                var passfrefname=/^[a-zA-z]{4,20}$/;
+                var pfrefname=document.getElementById('pass_frefname').value;
+               
+                if((pfrefname.match(passfrefname)))
+                {
+                    document.getElementById("valpass_frefname").innerHTML="";
+                }else
+                { alert(pfrefname);
+                    document.getElementById("valpass_frefname").innerHTML="Invalid RefName1";
+                    status="false";
+                }
+                
+                  var passfrefaddress=/^[a-zA-z]{4,20}$/;
+                var pfrefaddress=document.getElementById('pass_frefaddress').value;
+               
+                if((pfrefaddress.match(passfrefaddress)))
+                {
+                    document.getElementById("valpass_frefaddress").innerHTML="";
+                }else
+                { alert(pfrefaddress);
+                    document.getElementById("valpass_frefaddress").innerHTML="Invalid RefAddress1";
+                    status="false";
+                }
+                
+                var passfrefmobno=/^[a-zA-z]{4,20}$/;
+                var pfrefmobno=document.getElementById('pass_frefmobno').value;
+               
+                if((pfrefmobno.match(passfrefmobno)))
+                {
+                    document.getElementById("valpass_frefmobno").innerHTML="";
+                }else
+                { alert(pfrefmobno);
+                    document.getElementById("valpass_frefmobno").innerHTML="Invalid RefMobNo1";
+                    status="false";
+                }
+                
+                var passsrefname=/^[a-zA-z]{4,20}$/;
+                var psrefname=document.getElementById('pass_srefname').value;
+               
+                if((psrefname.match(passsrefname)))
+                {
+                    document.getElementById("valpass_srefname").innerHTML="";
+                }else
+                { alert(psrefname);
+                    document.getElementById("valpass_srefname").innerHTML="Invalid RefName2";
+                    status="false";
+                }
+                
+                  var passsrefaddress=/^[a-zA-z]{4,20}$/;
+                var psrefaddress=document.getElementById('pass_srefaddress').value;
+               
+                if((psrefaddress.match(passsrefaddress)))
+                {
+                    document.getElementById("valpass_srefaddress").innerHTML="";
+                }else
+                { alert(psrefaddress);
+                    document.getElementById("valpass_srefaddress").innerHTML="Invalid RefAddress2";
+                    status="false";
+                }
+                
+                var passsrefmobno=/^[a-zA-z]{4,20}$/;
+                var psrefmobno=document.getElementById('pass_srefmobno').value;
+               
+                if((psrefmobno.match(passsrefmobno)))
+                {
+                    document.getElementById("valpass_srefmobno").innerHTML="";
+                }else
+                { alert(psrefmobno);
+                    document.getElementById("valpass_srefmobno").innerHTML="Invalid RefMobNo2";
+                    status="false";
+                }
+                
+                if(status=="false")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+                
+            }
+            
+            </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Passport</title>
     </head>
@@ -108,10 +399,10 @@ out.print(str3);
         
             <tr><th>2. Applicants details :</th></tr>
             <tr><td>2.1 Applicants Name :</td></tr>
-            <tr><td>First name:</td><td><input type="text" name="pass_name" id="pass_name"></td></tr>
-            <tr><td>Surname :</td><td><input type="text" name="pass_surname" id="pass_surname"></td></tr>
+            <tr><td>First name:</td><td><input type="text" name="pass_name" id="pass_name"><div style="color: red" id="valpass_name"></div></td></tr>
+            <tr><td>Surname :</td><td><input type="text" name="pass_surname" id="pass_surname"><div style="color: red" id="valpass_surname"></div></td></tr>
             <tr><td>2.2 Date of birth :</td><td><input type="date" name="pass_dob" id="pass_dob"></td></tr>
-            <tr><td>2.3 Place of birth :</td><td><input type="text" name="pass_birthplace" id="pass_birthplace"></td></tr>
+            <tr><td>2.3 Place of birth :</td><td><input type="text" name="pass_birthplace" id="pass_birthplace"><div style="color: red" id="valpass_birthplace"></div></td></tr>
             <tr><td>2.4 District :</td><td><select name="district_id" id="district_id">
                 <option>--select--</option>
                              <%
@@ -126,7 +417,7 @@ out.print(str3);
                             %>
                       
                         </select></td></tr>
-            <tr><td>2.5 Country :</td><td><input type="text" name="pass_country" id="pass_country"></td></tr>
+            <tr><td>2.5 Country :</td><td><input type="text" name="pass_country" id="pass_country"><div style="color: red" id="valpass_country"></div></td></tr>
             <tr><td>2.6 Gender :</td><td><input type="radio" name="pass_gender" id="pass_gender">Male
                                          <input type="radio" name="pass_gender" id="pass_gender">Female
                                          <input type="radio" name="pass_gender" id="pass_gender">Transgender
@@ -141,8 +432,8 @@ out.print(str3);
                                                      <input type="radio" name="pass_citizenship" id="pass_citizenship">Descent
                                                      <input type="radio" name="pass_citizenship" id="pass_citizenship">Registration/Naturalization
                                                      </td></tr>
-            <tr><td>2.9 PAN No :</td><td><input type="text" name="pass_panno" id="pass_panno"></td></tr>
-            <tr><td>2.10 Voter's ID :</td><td><input type="text" name="pass_voterid" id="pass_voterid"></td></tr>
+            <tr><td>2.9 PAN No :</td><td><input type="text" name="pass_panno" id="pass_panno"><div style="color: red" id="valpass_panno"></div></td></tr>
+            <tr><td>2.10 Voter's ID :</td><td><input type="text" name="pass_voterid" id="pass_voterid"><div style="color: red" id="valpass_voterid"></div></td></tr>
             <tr><td>2.11 Employment Type :</td><td><select name="pass_emptype" id="pass_emptype">
                                     <option>--select--</option>
                                     <option>PSU</option>
@@ -158,38 +449,38 @@ out.print(str3);
                                     <option>Others</option>
                                     
                                         </select></td></tr>
-            <tr><td>2.12 If employed in Government/<br> Statutory Body/ PSU, <br>specify organization name :</td><td><input type="text" name="pass_emporg" id="pass_emporg"></td></tr>
+            <tr><td>2.12 If employed in Government/<br> Statutory Body/ PSU, <br>specify organization name :</td><td><input type="text" name="pass_emporg" id="pass_emporg"><div style="color: red" id="valpass_emporg"></div></td></tr>
             <tr><td>2.13 Educational Qualification :</td><td><input type="radio" name="pass_education" id="pass_education">7th pass or less
                                                             <input type="radio" name="pass_education" id="pass_education">Between 8th and 9th Standard
                                                             <br><input type="radio" name="pass_education" id="pass_education">10th pass and above
                                                              <input type="radio" name="pass_education" id="pass_education">Graduate and above
                                                             </td></tr>
            
-            <tr><td>2.14 Aadhaar Number :</td><td><input type="text" name="pass_aadharno" id="pass_aadharno"></td></tr>
-            <tr><td>2.15 Visible Distinguishing Mark :</td><td><input type="text" name="pass_idmarks" id="pass_idmarks"></td></tr>
+            <tr><td>2.14 Aadhaar Number :</td><td><input type="text" name="pass_aadharno" id="pass_aadharno"><div style="color: red" id="valpass_aadharno"></div></td></tr>
+            <tr><td>2.15 Visible Distinguishing Mark :</td><td><input type="text" name="pass_idmarks" id="pass_idmarks"><div style="color: red" id="valpass_idmarks"></div></td></tr>
        
                 <tr><th>3. Family Details :</th></tr>
-                <tr><td>3.1 Father's Given Name :</td><td><input type="text" name="pass_fname" id="pass_fname"></td></tr>
-                <tr><td>3.2 Mother's Given Name :</td><td><input type="text" name="pass_mname" id="pass_mname"></td></tr>
-                <tr><td>3.3 Legal Guardian's Given Name :</td><td><input type="text" name="pass_gname" id="pass_gname"></td></tr>
-                <tr><td>3.4 Spouse's Given Name</td><td><input type="text" name="pass_spousename" id="pass_spousename"></td></tr>
+                <tr><td>3.1 Father's Given Name :</td><td><input type="text" name="pass_fname" id="pass_fname"><div style="color: red" id="valpass_fname"></div></td></tr>
+                <tr><td>3.2 Mother's Given Name :</td><td><input type="text" name="pass_mname" id="pass_mname"><div style="color: red" id="valpass_mname"></div></td></tr>
+                <tr><td>3.3 Legal Guardian's Given Name :</td><td><input type="text" name="pass_gname" id="pass_gname"><div style="color: red" id="valpass_gname"></div></td></tr>
+                <tr><td>3.4 Spouse's Given Name</td><td><input type="text" name="pass_spousename" id="pass_spousename"><div style="color: red" id="valpass_spousename"></div></td></tr>
                 <tr><td>3.5 Applicants Address :</td></tr>
-                <tr><td>House No. and Street Name :</td><td><textarea type="text" name="pass_address" id="pass_address"></textarea></td></tr>
-                <tr><td>Police station :</td><td><input type="text" name="pass_police" id="pass_police"></td></tr>
-                <tr><td>Mobile number :</td><td><input type="text" name="pass_mobno" id="pass_mobno"></td></tr>
-                <tr><td>E-mail Id :</td><td><input type="email" name="pass_email" id="pass_email"></td></tr>
+                <tr><td>House No. and Street Name :</td><td><textarea type="text" name="pass_address" id="pass_address"></textarea><div style="color: red" id="valpass_address"></div></td></tr>
+                <tr><td>Police station :</td><td><input type="text" name="pass_police" id="pass_police"><div style="color: red" id="valpass_police"></div></td></tr>
+                <tr><td>Mobile number :</td><td><input type="text" name="pass_mobno" id="pass_mobno"><div style="color: red" id="valpass_mobno"></div></td></tr>
+                <tr><td>E-mail Id :</td><td><input type="email" name="pass_email" id="pass_email"><div style="color: red" id="valpass_email"></div></td></tr>
         
             <tr><th>6. References in your Village or Town or City :</th></tr>
             <tr><td>6.1 First Reference :</td></tr>
-            <tr><td>Name :</td><td><input type="text" name="pass_frefname" id="pass_frefname"></td></tr>
-            <tr><td>Address :</td><td><textarea type="text" name="pass_frefaddress" id="pass_frefaddress"></textarea></td></tr>
-            <tr><td>Mobile Number :</td><td><input type="text" name="pass_frefmobno" id="pass_frefmobno"></td></tr>
+            <tr><td>Name :</td><td><input type="text" name="pass_frefname" id="pass_frefname"><div style="color: red" id="valpass_frefname"></div></td></tr>
+            <tr><td>Address :</td><td><textarea type="text" name="pass_frefaddress" id="pass_frefaddress"></textarea><div style="color: red" id="valpass_frefaddress"></div></td></tr>
+            <tr><td>Mobile Number :</td><td><input type="text" name="pass_frefmobno" id="pass_frefmobno"><div style="color: red" id="valpass_frefmobno"></div></td></tr>
             <tr><td>6.2 Second Reference :</td></tr>
-            <tr><td>Name :</td><td><input type="text" name="pass_srefname" id="pass_srefname"></td></tr>
-            <tr><td>Address :</td><td><textarea type="text" name="pass_srefaddress" id="pass_srefaddress"></textarea></td></tr>
-            <tr><td>Mobile Number :</td><td><input type="text" name="pass_srefmobno" id="pass_srefmobno"></td></tr>
+            <tr><td>Name :</td><td><input type="text" name="pass_srefname" id="pass_srefname"><div style="color: red" id="valpass_srefname"></div></td></tr>
+            <tr><td>Address :</td><td><textarea type="text" name="pass_srefaddress" id="pass_srefaddress"></textarea><div style="color: red" id="valpass_srefaddress"></div></td></tr>
+            <tr><td>Mobile Number :</td><td><input type="text" name="pass_srefmobno" id="pass_srefmobno"><div style="color: red" id="valpass_srefmobno"></div></td></tr>
            
-         <tr><td><input type="submit" name="submit" value="Submit"></td>
+         <tr><td><input type="submit" name="submit" value="Submit" onClick="return validate()"></td>
                 <td><input type="reset" name="reset" value="Reset" ></td>
                 </tr>
         
