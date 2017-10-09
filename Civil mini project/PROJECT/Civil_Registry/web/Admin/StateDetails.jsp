@@ -12,6 +12,33 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>State Details</title>
+         <script>
+            
+            function validate()
+            {
+                var status="true";
+                
+                var statename=/^[a-zA-z]{4,20}$/;
+                var name=document.getElementById('sname').value;
+               
+                if((name.match(statename)))
+                {
+                    document.getElementById("valname").innerHTML="";
+                }else
+                { alert(name);
+                    document.getElementById("valname").innerHTML="Invalid StateName";
+                    status="false";
+                }
+                 if(status=="false")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            </script>
     </head>
     <body>
          <%
@@ -69,8 +96,8 @@
                 <input type="hidden" name="hid" value="<%=editId%>">
             <table>
                 <tr><h1>State Details</h1></tr>
-                <tr><td>State Name</td><td><input type="text" name="sname" id="sname" value="<%=statename%>"></td></tr>
-                <tr><td><input type="submit" name="submit" value="Submit" onClick="return validation()"></td>
+                <tr><td>State Name</td><td><input type="text" name="sname" id="sname" value="<%=statename%>"><div style="color: red" id="valname"></div></td></tr>
+                <tr><td><input type="submit" name="submit" value="Submit" onClick="return validate()"></td>
                     <td><input type="reset" value="Cancel" name="cancel"</td>
                 </tr>
             </table>

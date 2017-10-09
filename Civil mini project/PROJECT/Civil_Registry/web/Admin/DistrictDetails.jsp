@@ -12,6 +12,33 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CivilRegistry::DistrictDetails</title>
+         <script>
+            
+            function validate()
+            {
+                var status="true";
+                
+                var distname=/^[a-zA-z]{4,20}$/;
+                var name=document.getElementById('txt_district').value;
+               
+                if((name.match(distname)))
+                {
+                    document.getElementById("valdist").innerHTML="";
+                }else
+                { alert(name);
+                    document.getElementById("valdist").innerHTML="Invalid StateName";
+                    status="false";
+                }
+                 if(status=="false")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            </script>
     </head>
     <body>
          <form name="frm">
@@ -97,8 +124,8 @@
                             </td>
                         </tr>
             
-                <tr><td>District Name</td><td><input type="text" name="txt_district" id="district" value="<%=districtname%>"></td></tr>
-               <tr><td><input type="submit" name="sub" value="Save"></td>
+                <tr><td>District Name</td><td><input type="text" name="txt_district" id="txt_district" value="<%=districtname%>"><div style="color: red" id="valdist"></div></td></tr>
+               <tr><td><input type="submit" name="sub" value="Save" onClick="return validate()"></td>
                     <td><input type="reset" value="Cancel" name="cancel"</td>
             </table>
                                 <table>
