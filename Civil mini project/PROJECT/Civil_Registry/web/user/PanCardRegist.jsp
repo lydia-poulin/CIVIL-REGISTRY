@@ -14,14 +14,119 @@
         <title>Pancard Registration</title>
         <script src="../Jquery/jquery.min.js"></script>
             <script>
-                function seldistrict(staid)
+           function seldistrict(staid)
                 {
                     alert(staid);
                     $.ajax({url: "AjaxDistrict.jsp?stateid="+staid,success:function(result) {
                             $("#districtname").html(result);
                         }});
-
                 }
+           function validate()
+            {
+                var status="true";
+                
+                var userfirst=/^[a-zA-z]{4,20}$/;
+                var firstname=document.getElementById('txtfirst').value;
+               
+                if((firstname.match(userfirst)))
+                {
+                    document.getElementById("valfirst").innerHTML="";
+                }else
+                { alert(firstname);
+                    document.getElementById("valfirst").innerHTML="Invalid FirstName";
+                    status="false";
+                }
+                var userlast=/^[a-zA-z]{4,20}$/;
+                var lastname=document.getElementById('txtlast').value;
+               
+                if((lastname.match(userlast)))
+                {
+                    document.getElementById("vallast").innerHTML="";
+                }else
+                { alert(lastname);
+                    document.getElementById("vallast").innerHTML="Invalid LastName";
+                    status="false";
+                }
+                var usermiddle=/^[a-zA-z]{4,20}$/;
+                var middlename=document.getElementById('txtmiddle').value;
+               
+                if((middlename.match(usermiddle)))
+                {
+                    document.getElementById("valmiddle").innerHTML="";
+                }else
+                { alert(middlename);
+                    document.getElementById("valmiddle").innerHTML="Invalid MiddleName";
+                    status="false";
+                }
+                var userffirst=/^[a-zA-z]{4,20}$/;
+                var ffirstname=document.getElementById('txtffirst').value;
+               
+                if((ffirstname.match(userffirst)))
+                {
+                    document.getElementById("valffirst").innerHTML="";
+                }else
+                { alert(ffirstname);
+                    document.getElementById("valffirst").innerHTML="Invalid FirstName";
+                    status="false";
+                }
+                var userflast=/^[a-zA-z]{4,20}$/;
+                var flastname=document.getElementById('txtflast').value;
+               
+                if((flastname.match(userflast)))
+                {
+                    document.getElementById("valflast").innerHTML="";
+                }else
+                { alert(flastname);
+                    document.getElementById("valflast").innerHTML="Invalid LastName";
+                    status="false";
+                }
+                var useraddress=/^[a-zA-z 0-9]{4,20}$/;
+                var address=document.getElementById('txtaddress').value;
+               
+                if((address.match(useraddress)))
+                {
+                    document.getElementById("valaddr").innerHTML="";
+                }else
+                { alert(address);
+                    document.getElementById("valaddr").innerHTML="Invalid Address";
+                    status="false";
+                }
+                
+                 var userphno=/^[0-9]{10}$/;
+                var phno=document.getElementById('txtphon').value;
+               
+                if((phno.match(userphno)))
+                {
+                    document.getElementById("valphn").innerHTML="";
+                }else
+                { alert(phno);
+                    document.getElementById("valphn").innerHTML="Invalid Phone Number";
+                    status="false";
+                }
+                
+                 var useraadhar=/^[0-9]{12}$/;
+                var aadhar=document.getElementById('txtaadhar').value;
+               
+                if((aadhar.match(useraadhar)))
+                {
+                    document.getElementById("valaadhar").innerHTML="";
+                }else
+                { alert(aadhar);
+                    document.getElementById("valaadhar").innerHTML="Invalid Aadhar Number";
+                    status="false";
+                }
+                
+                if(status=="false")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+                
+            }
+                
             </script>
     </head>
     <body>
@@ -57,22 +162,22 @@
             <table>
                 <h1>Pancard Registration</h1>
                 <tr><td><b>Full Name</b></td></tr>
-                <tr><td>Last Name</td><td><input type="text" name="txtlast" id="txtfirst"></td></tr>
-                <tr><td>First Name</td><td><input type="text" name="txtfirst" id="txtlast"></td></tr>
-                <tr><td>Middle Name</td><td><input type="text" name="txtmiddle" id="txtmiddle"></td> </tr>
+                <tr><td>Last Name</td><td><input type="text" name="txtlast" id="txtfirst"><div style="color: red" id="vallast"></div></td></tr>
+                <tr><td>First Name</td><td><input type="text" name="txtfirst" id="txtlast"><div style="color: red" id="valfirst"></div></td></tr>
+                <tr><td>Middle Name</td><td><input type="text" name="txtmiddle" id="txtmiddle"><div style="color: red" id="valmiddle"></div></td> </tr>
                    
                 <tr><td>Gender</td>
                         <td><input type="radio" id="gender" value="male"name="txtgender">Male
                         <input type="radio" id="gender" value="female"name="txtgender">Female</td>
                 </tr>
-                 <tr><td>Date Of Birth</td><td><input type="text" name="txtdob" id="txtdob"</td></tr>
+                 <tr><td>Date Of Birth</td><td><input type="date" name="txtdob" id="txtdob"</td></tr>
                  <tr><td><b>Father's Name</b></td></tr>
-                 <tr><td>Last Name</td><td><input type="text" name="txtflast" id="txtffirst"></td></tr>
-                 <tr><td>First Name</td><td><input type="text" name="txtffirst" id="txtflast"></td></tr>
+                 <tr><td>Last Name</td><td><input type="text" name="txtflast" id="txtffirst"><div style="color: red" id="valflast"></div></td></tr>
+                 <tr><td>First Name</td><td><input type="text" name="txtffirst" id="txtflast"><div style="color: red" id="valffirst"></div></td></tr>
                     
-                    <tr><td>Address With Pin</td><td><textarea name="txtaddress" id="txtaddress"></textarea></td></tr>
+                    <tr><td>Address With Pin</td><td><textarea name="txtaddress" id="txtaddress"></textarea><div style="color: red" id="valaddr"></div></td></tr>
                     <tr><td>Email</td><td><input type="text" name="txtemail" id="txtemail"></td></tr>
-                    <tr><td>Phone  Number</td><td><input type="text" name="txtphon" id="txtphon"></td></tr>
+                    <tr><td>Phone  Number</td><td><input type="text" name="txtphon" id="txtphon"><div style="color: red" id="valphn"></div></td></tr>
                     <tr>
                         <td>State</td>
                         <td>
@@ -110,7 +215,7 @@
                             </select>   
                         </td>
                     </tr>
-                    <tr><td>Aadhar Number</td><td><input type="text" name="txtaadhar" id="txtaadhar"></td></tr>
+                    <tr><td>Aadhar Number</td><td><input type="text" name="txtaadhar" id="txtaadhar"><div style="color: red" id="valaadhar"></div></td></tr>
                     <tr><td><b>Source Of Income</b></tr>
                     <tr><td>Salary<input type = "checkbox" name = "income" value = "salary"></td>
                         <td>Income from Business<input type = "checkbox" name = "income" value = "bus"></td>
@@ -123,7 +228,7 @@
                     <tr><td>Proof Of Date Of Birth</td><td><input type = "file" name = "proofdob" accept = "image/*" /><td></tr>
                      <tr>
                          <td><input type="reset"name="reset"value="RESET"</td>
-                         <td><input type="submit" name="sub" value="SUBMIT"></td>
+                         <td><input type="submit" name="sub" value="SUBMIT" onClick="return validate()"></td>
                          
                      </tr>
                     
