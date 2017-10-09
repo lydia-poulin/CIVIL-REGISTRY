@@ -12,6 +12,33 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Religion Details</title>
+        <script>
+            
+            function validate()
+            {
+                var status="true";
+                
+                var religionname=/^[a-zA-z]{4,20}$/;
+                var name=document.getElementById('rname').value;
+               
+                if((name.match(religionname)))
+                {
+                    document.getElementById("valreli").innerHTML="";
+                }else
+                { alert(name);
+                    document.getElementById("valreli").innerHTML="Invalid ReligionName";
+                    status="false";
+                }
+                 if(status=="false")
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            </script>
     </head>
     <body>
          <%
@@ -68,8 +95,8 @@
                 <input type="hidden" name="hid" value="<%=editId%>">
             <table>
                 <tr><h1>Religion Details</h1></tr>
-                <tr><td>Religion Name</td><td><input type="text" name="rname" id="rname" value="<%=religionname%>"></td></tr>
-                <tr><td><input type="submit" name="submit" value="submit" onClick="return validation()"></td>
+                <tr><td>Religion Name</td><td><input type="text" name="rname" id="rname" value="<%=religionname%>"><div style="color: red" id="valreli"></div></td></tr>
+                <tr><td><input type="submit" name="submit" value="submit" onClick="return validate()"></td>
                     <td><input type="reset" value="Cancel" name="cancel"</td>
                 </tr>
             </table>
