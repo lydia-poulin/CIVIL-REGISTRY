@@ -11,12 +11,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pancard Registration</title>
-        <script src="../Jquery/jquery.min.js"></script>
+        <title>CivilRegistry::PancardRegistration</title>
+        <script src="../jquery.min.js" type="text/javascript"></script>
             <script>
            function seldistrict(staid)
                 {
-                    alert(staid);
+                    //alert(staid);
                     $.ajax({url: "AjaxDistrict.jsp?stateid="+staid,success:function(result) {
                             $("#districtname").html(result);
                         }});
@@ -47,17 +47,7 @@
                     document.getElementById("vallast").innerHTML="Invalid LastName";
                     status="false";
                 }
-                var usermiddle=/^[a-zA-z]{4,20}$/;
-                var middlename=document.getElementById('txtmiddle').value;
                
-                if((middlename.match(usermiddle)))
-                {
-                    document.getElementById("valmiddle").innerHTML="";
-                }else
-                { alert(middlename);
-                    document.getElementById("valmiddle").innerHTML="Invalid MiddleName";
-                    status="false";
-                }
                 var userffirst=/^[a-zA-z]{4,20}$/;
                 var ffirstname=document.getElementById('txtffirst').value;
                
@@ -85,10 +75,10 @@
                
                 if((address.match(useraddress)))
                 {
-                    document.getElementById("valaddr").innerHTML="";
+                    document.getElementById("valaddress").innerHTML="";
                 }else
                 { alert(address);
-                    document.getElementById("valaddr").innerHTML="Invalid Address";
+                    document.getElementById("valaddress").innerHTML="Invalid Address";
                     status="false";
                 }
                 
@@ -141,8 +131,8 @@
                   String middlename=request.getParameter("txtmiddle");
                   String gender=request.getParameter("txtgender");
                   String dob=request.getParameter("txtdob");
-                  String flast=request.getParameter("txtffirst");
-                  String ffirst=request.getParameter("txtflast");
+                  String flast=request.getParameter("txtflast");
+                  String ffirst=request.getParameter("txtffirst");
                   String address=request.getParameter("txtaddress");
                   String email=request.getParameter("txtemail");
                   String phon=request.getParameter("txtphon");
@@ -175,7 +165,7 @@
                  <tr><td>Last Name</td><td><input type="text" name="txtflast" id="txtffirst"><div style="color: red" id="valflast"></div></td></tr>
                  <tr><td>First Name</td><td><input type="text" name="txtffirst" id="txtflast"><div style="color: red" id="valffirst"></div></td></tr>
                     
-                    <tr><td>Address With Pin</td><td><textarea name="txtaddress" id="txtaddress"></textarea><div style="color: red" id="valaddr"></div></td></tr>
+                    <tr><td>Address With Pin</td><td><textarea name="txtaddress" id="txtaddress"></textarea><div style="color: red" id="valaddress"></div></td></tr>
                     <tr><td>Email</td><td><input type="text" name="txtemail" id="txtemail"></td></tr>
                     <tr><td>Phone  Number</td><td><input type="text" name="txtphon" id="txtphon"><div style="color: red" id="valphn"></div></td></tr>
                     <tr>
@@ -217,10 +207,10 @@
                     </tr>
                     <tr><td>Aadhar Number</td><td><input type="text" name="txtaadhar" id="txtaadhar"><div style="color: red" id="valaadhar"></div></td></tr>
                     <tr><td><b>Source Of Income</b></tr>
-                    <tr><td>Salary<input type = "checkbox" name = "income" value = "salary"></td>
-                        <td>Income from Business<input type = "checkbox" name = "income" value = "bus"></td>
+                    <tr><td>Salary<input type = "checkbox" name = "income" value = "Salary"></td>
+                        <td>Income from Business<input type = "checkbox" name = "income" value = "Income from Business"></td>
                     </tr>
-                    <tr> <td>Income from House property<input type = "checkbox" name = "income" value = "house"></td>
+                    <tr> <td>Income from House property<input type = "checkbox" name = "income" value = "Income from House property"></td>
                     </tr>
                     <tr><td>Proof Of Identity</td><td><input type = "file" name = "proofid" accept = "image/*" /></td></tr>
                    
